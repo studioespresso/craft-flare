@@ -1,0 +1,46 @@
+{
+    "name": "studioespresso/craft-flare",
+    "description": "Flare.io integration for Craft CMS",
+    "type": "craft-plugin",
+    "license": "mit",
+    "support": {
+        "email": "support@studioespresso.co",
+        "issues": "https://github.com/studioespresso/craft-flare/issues?state=open",
+        "source": "https://github.com/studioespresso/craft-flare",
+        "docs": "https://github.com/studioespresso/craft-flare",
+        "rss": "https://github.com/studioespresso/craft-flare/releases.atom"
+    },
+    "require": {
+        "craftcms/cms": "^4.12.0",
+        "spatie/flare-client-php": "^1.8.0"
+    },
+    "require-dev": {
+        "craftcms/ecs": "dev-main",
+        "craftcms/phpstan": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "studioespresso\\flare\\": "src/"
+        }
+    },
+    "extra": {
+        "handle": "flare",
+        "name": "Flare",
+        "developer": "Studio Espresso",
+        "documentationUrl": "https://github.com/studioespresso/craft-flare",
+        "class": "studioespresso\\flare\\Flare"
+    },
+    "scripts": {
+        "check-cs": "ecs check --ansi",
+        "fix-cs": "ecs check --ansi --fix",
+        "phpstan": "phpstan --memory-limit=1G"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    }
+}
+
