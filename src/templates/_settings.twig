@@ -1,0 +1,36 @@
+{# @var plugin \studioespresso\flare\Flare #}
+{# @var settings \studioespresso\flare\models\Settings #}
+
+{% import '_includes/forms.twig' as forms %}
+{% import _self as self %}
+
+
+{{ forms.autosuggestfield({
+    label: 'API key'|t('flare'),
+    id: 'apiKey',
+    name: 'apiKey',
+    suggestEnvVars: true,
+    value: settings['apiKey'],
+    warning: self.configWarning('apiKey', 'flare')
+}) }}
+
+{{ forms.lightswitchField({
+    label:        "Enabled"|t,
+    id:           'enabled',
+    name:         'enabled',
+    on:           settings['enabled'],
+    warning: self.configWarning('enabled', 'flare')
+}) }}
+
+
+
+{% macro configWarning(setting, file) -%}
+    {%- set configArray = craft.app.config.getConfigFromFile(file) -%}
+    {%- if configArray[setting] is defined -%}
+        {{ "This is being overridden by the `{setting}` config setting."|raw|t('flare', {
+            setting: setting
+        }) }}
+    {%- else -%}
+        {{ false }}
+    {%- endif -%}
+{%- endmacro %}
