@@ -8,6 +8,7 @@ use craft\base\Plugin;
 use craft\console\Application as ConsoleApplication;
 use craft\events\ExceptionEvent;
 use craft\web\ErrorHandler;
+use Spatie\FlareClient\Flare as FlareClient;
 use studioespresso\flare\models\Settings;
 use studioespressp\flare\services\FlareService;
 use yii\base\Event;
@@ -26,6 +27,9 @@ class Flare extends Plugin
 {
     public string $schemaVersion = '1.0.0';
     public bool $hasCpSettings = true;
+    /**
+     * @var mixed|object|null
+     */
 
     public static function config(): array
     {
@@ -50,10 +54,12 @@ class Flare extends Plugin
         // after Craft is fully initialized, to avoid conflicts with other plugins/modules
         Craft::$app->onInit(function() {
             if ($this->getSettings()->enabled) {
+//                $client = FlareClient::make($this->getSettings()->apiKey)->registerFlareHandlers();
                 Event::on(
                     ErrorHandler::className(),
                     ErrorHandler::EVENT_BEFORE_HANDLE_EXCEPTION,
                     function(ExceptionEvent $event) {
+//                        $client->report($event->exception);
                         $this->flare->reportException($event->exception);
                     }
                 );
