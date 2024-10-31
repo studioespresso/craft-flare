@@ -52,8 +52,8 @@ In order to load the plugin as soon as possible (to make sure you’re tracking 
 ````php
 return [
     // If you’re app.php contains multiple environments, make sure to add this to the ‘*’ one.
-    ‘bootstrap’ => [
-        ‘studioespresso\flare\Bootstrap’
+    'bootstrap' => [
+        'studioespresso\flare\Bootstrap'
     ]
 ]
 ````
