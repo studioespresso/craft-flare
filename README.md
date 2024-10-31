@@ -46,6 +46,18 @@ return [
 ];
 ````
 
+## Bootstrap (optional)
+In order to load the plugin as soon as possible (to make sure you’re tracking the most errors), you can add the following snippet to your `app.php
+
+````php
+return [
+    // If you’re app.php contains multiple environments, make sure to add this to the ‘*’ one.
+    ‘bootstrap’ => [
+        ‘studioespresso\flare\Bootstrap’
+    ]
+]
+````
+
 ## Testing
 Once you've added the API key for your Flare project, you can use a built-in console command to send a test exception to Flare:
 
