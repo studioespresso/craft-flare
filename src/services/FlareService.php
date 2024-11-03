@@ -31,6 +31,11 @@ class FlareService extends Component
         }
 
         if ($this->client) {
+
+            if ($settings->anonymizeIp) {
+                $this->client->anonymizeIp();
+            }
+
             $this->client->context('CMS', 'Craft CMS');
             $this->client->context('System name', Craft::$app->getSystemName());
             $this->client->context('Craft version', Craft::$app->getInfo()->version);

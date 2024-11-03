@@ -13,5 +13,7 @@ class Settings extends Model
 
     public ?string $apiKey = null;
 
+    public bool $anonymizeIp = true;
+
     public array $excludedExceptions = [];
 }
