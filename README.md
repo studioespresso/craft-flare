@@ -1,10 +1,9 @@
-# Flare
-
-Flareapp.io integration for Craft CMS
+# Flareapp.io integration for Craft CMS
 
 ## Requirements
 
-This plugin requires Craft CMS 4.12.0 or later, and PHP 8.1 or later - <br>and an account at [flareapp.io](https://flareapp.io/?via=studioespresso) *(Affiliate link, you're supporting further maintenance of this plugin by signing up through that link - thanks!)*
+- Craft CMS 4.12 or later, or Craft CMS 5.0 or later.
+- An account at [flareapp.io](https://flareapp.io/?via=studioespresso) (Affiliate link, you're supporting further maintenance of this plugin by signing up through that link - thanks! ❤️)
 
 ## Installation
 
@@ -44,6 +43,18 @@ return [
         'enabled' => true,
     ]
 ];
+````
+
+## Bootstrap (optional)
+In order to load the plugin as soon as possible (to make sure you’re tracking the most errors), you can add the following snippet to your `app.php
+
+````php
+return [
+    // If you’re app.php contains multiple environments, make sure to add this to the ‘*’ one.
+    'bootstrap' => [
+        'studioespresso\flare\Bootstrap'
+    ]
+]
 ````
 
 ## Testing

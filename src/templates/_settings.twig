@@ -22,6 +22,17 @@
     warning: self.configWarning('enabled', 'flare')
 }) }}
 
+<hr>
+<h2>{{ "Controlling collected data"|t('flare') }}</h2>
+
+{{ forms.lightswitchField({
+    label:        "Anonymize IP"|t,
+    id:           'anonymizeIp',
+    name:         'anonymizeIp',
+    on:           settings['anonymizeIp'],
+    warning: self.configWarning('anonymizeIp', 'flare')
+}) }}
+
 
 
 {% macro configWarning(setting, file) -%}
