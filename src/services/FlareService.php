@@ -4,21 +4,41 @@ namespace studioespressp\flare\services;
 
 use Craft;
 use craft\base\Component;
+use craft\helpers\App;
 use Spatie\FlareClient\Flare as FlareClient;
 use studioespresso\flare\Flare;
+use studioespresso\flare\models\Settings as SettingsModel;
 
+/**
+ * Class FlareService
+ * @package studioespresso\flare\services\FlareService
+ *
+ * @property-read SettingsModel $settings
+ */
 class FlareService extends Component
 {
+
+    /**
+     * @var FlareClient|null
+     */
     public ?FlareClient $client = null;
+
+    /**
+     * @var SettingsModel|null
+     */
+    private ?SettingsModel $settings = null;
 
     public function init(): void
     {
+        $this->settings = Flare::getInstance()->getSettings();
+
         if (
             Flare::getInstance()->getSettings()->apiKey &&
             Flare::getInstance()->getSettings()->enabled
         ) {
-            $this->client = FlareClient::make(Flare::getInstance()->getSettings()->apiKey)->registerFlareHandlers();
+            $this->client = FlareClient::make(App::parseEnv($this->settings->apiKey))->registerFlareHandlers();
         }
+
         parent::init();
     }
 

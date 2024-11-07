@@ -3,6 +3,7 @@
 namespace studioespresso\flare\console\controllers;
 
 use craft\console\Controller;
+use craft\helpers\App;
 use craft\helpers\Console;
 use studioespresso\flare\Flare;
 use yii\base\Exception;
@@ -21,7 +22,7 @@ class TestController extends Controller
             Console::stdout("Flare is not enabled on this environment." . PHP_EOL . "Check your settings or run this command where Flare is enabled." . PHP_EOL, Console::FG_YELLOW);
             return;
         }
-        if (!Flare::getInstance()->getSettings()->apiKey) {
+        if (!App::parseEnv(Flare::getInstance()->getSettings()->apiKey)) {
             Console::stdout("Flare API key missing." . PHP_EOL . "Check your settings or run this command where Flare is correctly configured" . PHP_EOL, Console::FG_RED);
             return;
         }
