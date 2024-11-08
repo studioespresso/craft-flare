@@ -43,7 +43,6 @@ class FlareService extends Component
         }
 
         if ($this->client) {
-
             if ($this->settings->anonymizeIp) {
                 $this->client->anonymizeIp();
             }
