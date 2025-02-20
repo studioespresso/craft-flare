@@ -1,5 +1,9 @@
 # Release Notes for Flare
 
+## 5.0.2 - 2025-02-20
+### Fixed
+- Fixed a typo in the namespace of the FlareService
+
 ## 5.0.1 - 2024-11-07
 ### Added
 - Added "Anonymize IP" setting

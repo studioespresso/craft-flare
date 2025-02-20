@@ -3,7 +3,7 @@
     "description": "Flare.io integration for Craft CMS",
     "type": "craft-plugin",
     "license": "mit",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "support": {
         "email": "support@studioespresso.co",
         "issues": "https://github.com/studioespresso/craft-flare/issues?state=open",
