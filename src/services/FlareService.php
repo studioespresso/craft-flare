@@ -1,6 +1,6 @@
 <?php
 
-namespace studioespressp\flare\services;
+namespace studioespresso\flare\services;
 
 use Craft;
 use craft\base\Component;

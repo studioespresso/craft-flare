@@ -10,7 +10,7 @@ use craft\events\ExceptionEvent;
 use craft\web\ErrorHandler;
 use Spatie\FlareClient\Flare as FlareClient;
 use studioespresso\flare\models\Settings;
-use studioespressp\flare\services\FlareService;
+use studioespresso\flare\services\FlareService;
 use yii\base\Event;
 
 /**
@@ -18,7 +18,7 @@ use yii\base\Event;
  *
  * @method static Flare getInstance()
  * @method Settings getSettings()
- * @method FlareService flare
+ * @method FlareSrvice flare
  * @author Studio Espresso <support@studioespresso.co>
  * @copyright Studio Espresso
  * @license MIT
