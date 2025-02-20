@@ -7,6 +7,7 @@ use craft\base\Component;
 use craft\helpers\App;
 use Spatie\FlareClient\Flare as FlareClient;
 use studioespresso\flare\Flare;
+use studioespresso\flare\middleware\FlareMiddleware;
 use studioespresso\flare\models\Settings as SettingsModel;
 
 /**
@@ -17,7 +18,6 @@ use studioespresso\flare\models\Settings as SettingsModel;
  */
 class FlareService extends Component
 {
-
     /**
      * @var FlareClient|null
      */
@@ -37,6 +37,7 @@ class FlareService extends Component
             Flare::getInstance()->getSettings()->enabled
         ) {
             $this->client = FlareClient::make(App::parseEnv($this->settings->apiKey))->registerFlareHandlers();
+            $this->client->registerMiddleware(FlareMiddleware::class);
         }
 
         parent::init();
@@ -51,7 +52,6 @@ class FlareService extends Component
         }
 
         if ($this->client) {
-
             if ($settings->anonymizeIp) {
                 $this->client->anonymizeIp();
             }
