@@ -1,5 +1,9 @@
 # Release Notes for Flare
 
+## 5.0.3 - 2025-02-21
+### Added
+- The plugin now always passes along the absolute url ([#2](https://github.com/studioespresso/craft-flare/pull/2))
+
 ## 5.0.2 - 2025-02-20
 ### Fixed
 - Fixed a typo in the namespace of the FlareService
